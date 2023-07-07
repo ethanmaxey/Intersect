@@ -1,14 +1,41 @@
 from flask import Flask, request
-import spotipy, requests, base64
+from flask_cors import CORS
+import spotipy
+import os
+from spotipy.oauth2 import SpotifyOAuth
+from dotenv import load_dotenv
+import requests
+import base64
+import secrets
+import string
+
+def generate_random_string(length):
+    alphabet = string.ascii_letters + string.digits
+    random_string = ''.join(secrets.choice(alphabet) for _ in range(length))
+    return random_string
+
+load_dotenv()
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:8888"}})  # Allow requests from localhost:8888
 
 @app.route('/create-playlist', methods=['POST'])
 def create_playlist_endpoint():
     user_info = request.get_json()
     access_token = user_info['access_token']
+    state  = generate_random_string(16)
+ 
+    auth_manager = SpotifyOAuth(
+        scope=os.getenv('SCOPE'),
+        client_id=os.getenv('SPOTIPY_CLIENT_ID'),
+        client_secret=os.getenv('SPOTIPY_CLIENT_SECRET'),
+        redirect_uri=os.getenv('SPOTIPY_REDIRECT_URI'),
+        state=state
+    )
 
-    sp = spotipy.Spotify(auth=access_token)
+    print("AUTH MANAGER", auth_manager)
+
+    sp = spotipy.Spotify(auth_manager=auth_manager)
 
     def find_top150_tracks():
         top_tracks = []
