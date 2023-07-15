@@ -1,7 +1,9 @@
 <!doctype html>
 <html>
   <head>
-    <title>Example of the Authorization Code flow with Spotify</title>
+    <title>Intersect</title>
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style type="text/css">
       #login,
@@ -14,14 +16,56 @@
         white-space: nowrap;
         width: 500px;
       }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #191414; /* Spotify's secondary color */
+        font-family: Arial, sans-serif;
+      }
+
+      #login {
+        text-align: center;
+        color: #1DB954; /* Spotify's primary color */
+      }
+
+      .btn-primary {
+        background-color: transparent; /* Making the background transparent. */
+        border: none;
+        border-radius: 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        outline: none; /* This line removes the focus outline. */
+      }
+
+      a:focus, a:active, a:focus-visible {
+        outline: none;
+      }
+
+      .btn-primary img {
+        height: 40px; /* You can adjust the size of the image here. */
+      }
+
+      .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+        color: #fff;
+        background-color: #1DB954; /* Spotify's primary color */
+        border-color: #1DB954; /* Spotify's primary color */
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
     </style>
   </head>
 
   <body>
     <div class="container">
       <div id="login">
-        <h1>This is an example of the Authorization Code flow</h1>
-        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+        <!-- <h1>This is an example of the Authorization Code flow</h1> -->
+        <a href="/login" class="btn btn-primary"><img src="spotify_connect.png" alt="Login" /></a>
       </div>
       <div id="loggedin">
         <div id="user-profile">
@@ -34,12 +78,12 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>Logged in as {{display_name}}</h1>
+      <h1>Hello there {{display_name}}</h1>
       <div class="media">
         <div class="pull-left">
           <img class="media-object" width="150" src="{{images.0.url}}" />
         </div>
-        <div class="media-body">
+        <!-- <div class="media-body">
           <dl class="dl-horizontal">
             <dt>Display name</dt>
             <dd class="clearfix">{{display_name}}</dd>
@@ -56,7 +100,7 @@
             <dt>Country</dt>
             <dd>{{country}}</dd>
           </dl>
-        </div>
+        </div> -->
       </div>
     </script>
 
