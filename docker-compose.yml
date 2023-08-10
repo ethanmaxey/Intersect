@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  intersect-service:
+    image: intersect-image
+    ports:
+      - "8888:8888"
+    env_file:
+      - .env
