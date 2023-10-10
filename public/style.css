@@ -1,0 +1,96 @@
+.logged_in {
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.media-object-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logged_in img.media-object {
+  width: 150px; 
+  height: auto;
+  border-radius: 30px;
+}
+
+.logged_in button {
+  color: white; /* Change text color to white */
+  background-color: #1DB954; /* Change button color to Spotify green */
+  padding: 20px 10px; /* Add padding - you can adjust as needed */
+  margin-top: 20px; /* Add margin to the top - you can adjust as needed */
+  border-radius: 5px; /* Optional: round the corners of the button */
+}
+
+
+#login,
+#loggedin {
+  display: none;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #191414;
+  /* Spotify's secondary color */
+  font-family: Arial, sans-serif;
+}
+
+#login {
+  text-align: center;
+  color: #1DB954;
+  /* Spotify's primary color */
+}
+
+.btn-primary {
+  background-color: transparent;
+  /* Making the background transparent. */
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  /* This line removes the focus outline. */
+}
+
+a:focus,
+a:active,
+a:focus-visible {
+  outline: none;
+}
+
+.btn-primary img {
+  height: 40px;
+  /* You can adjust the size of the image here. */
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #1DB954;
+  /* Spotify's primary color */
+  border-color: #1DB954;
+  /* Spotify's primary color */
+  outline: none !important;
+  box-shadow: none !important;
+}
